@@ -1,0 +1,47 @@
+title Diagramme séquence de TableTrove (fonctionalité fondamentale)
+
+participant User
+participant App mobile
+
+
+
+entryspacing 0.6
+Resto->Web: Créer un compte 
+Web->Web: Vérifie que le courriel assoccié au compte n'existe pas déjà 
+loop tant que le compte existe déjà
+Resto<--Web: Demande d'essayer un nouveau courriel
+Resto->Web: Essaie une nouveau courriel
+end
+Web<-Web: Sauvegarde le compte
+Resto<-Web:Demande les informations à afficher pour le restaurant et les disponibilités
+Resto-->Web: Rempli ce qui est demandé
+Web<-Web:Sauvegarde la page du restaurant
+
+
+User->App mobile: Créer un compte 
+App mobile->App mobile: Vérifie que le courriel assoccié au compte n'existe pas déjà 
+loop tant que le compte existe déjà
+User<--App mobile: Demande d'essayer un nouveau courriel
+User->App mobile: Essaie une nouveau courriel
+end
+App mobile->App mobile: Sauvegarde le compte
+User->App mobile:Clicker sur un restaurant\n
+User<--App mobile: Affiche la page du restaurant
+User->App mobile: Appuie sur le bouton de réservation
+User<--App mobile: Affiche un calendrier avec les jours où il y a des disponibilité
+User->App mobile: Choisir une journée
+User<--App mobile: Affiche les heurs disponible pour la réservation
+User->App mobile: Choisi une heure et le nombre de personne
+App mobile<-App mobile: Sauvegarde la réservation et affiche une confirmation
+
+App mobile->Web: Envoie la réservation de la réservation
+Web->Web:Sauvegarde 
+Web-->Resto: Envoie la réservations
+opt Si le bouton modification est utilisé
+Resto->Web: Apporter des modifications ou annuler la réservation
+Web-->Web: Sauvegarde des modifications
+Web->App mobile: Envoie des modifications
+App mobile-->User: Alerte au sujet des modifications
+
+end
+

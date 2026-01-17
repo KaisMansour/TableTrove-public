@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <Button
+        android:id="@+id/btnRetourReg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:text="@string/retour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvAppName" />
+
+    <TextView
+        android:id="@+id/tvErreurPrenomReg"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/erreur_email"
+        android:textColor="@color/message_erreur"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="@+id/etPrenom"
+        app:layout_constraintStart_toStartOf="@+id/etPrenom"
+        app:layout_constraintTop_toBottomOf="@+id/etPrenom" />
+
+    <TextView
+        android:id="@+id/tvErreurNomReg"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/erreur_email"
+        android:textColor="@color/message_erreur"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="@+id/etNom"
+        app:layout_constraintStart_toStartOf="@+id/etNom"
+        app:layout_constraintTop_toBottomOf="@+id/etNom" />
+
+    <TextView
+        android:id="@+id/tvErreurDdnReg"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="@string/erreur_email"
+        android:textColor="@color/message_erreur"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="@+id/etDateNaiss"
+        app:layout_constraintStart_toStartOf="@+id/etDateNaiss"
+        app:layout_constraintTop_toBottomOf="@+id/etDateNaiss" />
+
+    <TextView
+        android:id="@+id/tvErreurPhoneReg"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/erreur_email"
+        android:textColor="@color/message_erreur"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="@+id/etTelephone"
+        app:layout_constraintStart_toStartOf="@+id/etTelephone"
+        app:layout_constraintTop_toBottomOf="@+id/etTelephone" />
+
+    <TextView
+        android:id="@+id/tvErreurEmailReg"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/erreur_email"
+        android:textColor="@color/message_erreur"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="@+id/etRegisterEmail"
+        app:layout_constraintStart_toStartOf="@+id/etRegisterEmail"
+        app:layout_constraintTop_toBottomOf="@+id/etRegisterEmail" />
+
+    <TextView
+        android:id="@+id/tvErreurMdpReg"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/erreur_email"
+        android:textColor="@color/message_erreur"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="@+id/etRegisterMdp"
+        app:layout_constraintStart_toStartOf="@+id/etRegisterMdp"
+        app:layout_constraintTop_toBottomOf="@+id/etRegisterMdp" />
+
+    <TextView
+        android:id="@+id/tvErreurMdp2Reg"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:text="@string/erreur_mdp2"
+        android:textColor="@color/message_erreur"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="@+id/etConfirmMdp"
+        app:layout_constraintStart_toStartOf="@+id/etConfirmMdp"
+        app:layout_constraintTop_toBottomOf="@+id/etConfirmMdp" />
+
+    <TextView
+        android:id="@+id/tvAppName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/mobile_app_name"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/register_titre"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvAppName" />
+
+    <EditText
+        android:id="@+id/etPrenom"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/prenom"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/tvRegister"
+        app:layout_constraintStart_toStartOf="@+id/tvRegister"
+        app:layout_constraintTop_toBottomOf="@+id/tvRegister" />
+
+    <EditText
+        android:id="@+id/etNom"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/nom"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/etPrenom"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etPrenom"
+        app:layout_constraintTop_toBottomOf="@+id/tvErreurPrenomReg" />
+
+    <EditText
+        android:id="@+id/etDateNaiss"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/date_naissance"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/etNom"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etNom"
+        app:layout_constraintTop_toBottomOf="@+id/tvErreurNomReg" />
+
+    <EditText
+        android:id="@+id/etTelephone"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/telephone"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="@+id/etDateNaiss"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etDateNaiss"
+        app:layout_constraintTop_toBottomOf="@+id/tvErreurDdnReg" />
+
+    <EditText
+        android:id="@+id/etRegisterEmail"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="@+id/etTelephone"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etTelephone"
+        app:layout_constraintTop_toBottomOf="@+id/tvErreurPhoneReg" />
+
+    <EditText
+        android:id="@+id/etConfirmMdp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/confirm_mdp"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/etRegisterMdp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etRegisterMdp"
+        app:layout_constraintTop_toBottomOf="@+id/tvErreurMdpReg" />
+
+    <Button
+        android:id="@+id/btnSubmit"
+        android:layout_width="300dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="8dp"
+        android:text="@string/btnSubmit"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="@+id/etConfirmMdp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etConfirmMdp"
+        app:layout_constraintTop_toBottomOf="@+id/tvErreurMdp2Reg" />
+
+    <EditText
+        android:id="@+id/etRegisterMdp"
+        android:layout_width="300dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="8dp"
+        android:ems="10"
+        android:hint="@string/mdp"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="@+id/etRegisterEmail"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/etRegisterEmail"
+        app:layout_constraintTop_toBottomOf="@+id/tvErreurEmailReg" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

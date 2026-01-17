@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">TableTrove-V3</string>
+    <string name="prenom">Prénom</string>
+    <string name="se_connecter">user_icon</string>
+    <string name="notifications">notif_bell</string>
+    <string name="settings">gear_icon</string>
+    <string name="mobile_app_name">TableTrove</string>
+    <string name="rechercher">Rechercher un restaurant</string>
+    <string name="register_titre">Formulaire d\'inscription</string>
+    <string name="nom">Nom</string>
+    <string name="date_naissance">Date de naissance</string>
+    <string name="telephone">Numéro de téléphone</string>
+    <string name="email">Courriel</string>
+    <string name="mdp">Mot de passe</string>
+    <string name="btnSubmit">SOUMETTRE</string>
+    <string name="connexion">CONNEXION</string>
+    <string name="se_inscrire">S\'inscrire</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="confirm_mdp">Confirmer mot de passe</string>
+    <string name="erreur_email" />
+    <string name="erreur_mdp" />
+    <string name="erreur_prenom" />
+    <string name="erreur_mdp2" />
+    <string name="retour">Retour</string>
+    <!-- Nouvelles chaînes pour l'écran de détail restaurant -->
+    <string name="restaurant_details">Détails du restaurant</string>
+    <string name="book_table">Réserver une table</string>
+
+    <!-- Nouvelles chaînes pour l'écran de réservation -->
+    <string name="make_reservation">Faire une réservation</string>
+    <string name="select_date">Sélectionner une date</string>
+    <string name="select_time">Sélectionner une heure</string>
+    <string name="person_count">Nombre de personnes</string>
+    <string name="special_requests">Demandes spéciales</string>
+    <string name="special_requests_hint">Indiquez ici toute demande particulière</string>
+    <string name="confirm_reservation">Réserver</string>
+    <string name="cancel">Annuler</string>
+
+    <!-- Nouvelles chaînes pour l'écran de recherche -->
+    <string name="search_restaurants">Recherche de Restaurants</string>
+    <string name="search_hint">Nom du restaurant ou type de cuisine</string>
+    <string name="all_cuisines">Toutes les cuisines</string>
+</resources>

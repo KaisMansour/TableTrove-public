@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Gestion du plan de salle - Table Trove">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan de Salle - Table Trove</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Playfair+Display:wght@700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../CSS/Styles.css">
+</head>
+<body>
+     <!-- Header Restaurant -->
+     <header>
+        <div class="logo">
+            <h1>TableTrove</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="gestionReservations.html">Réservations</a></li>
+                <li><a href="statistiquesResto.html">Statistiques</a></li>
+                <li><a href="modifierPageResto.html">Page</a></li>
+                <li><a href="contactRestaurant.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <span id="restaurantName"></span>
+            <a href="menuRestaurateur.html" id="menuRestaurateurBtn" class="btn-menu-restaurateur">Gestion</a>
+            <a href="deconnexionRestaurant.html" id="logoutBtn" class="btn-logout" style="display: none;">Déconnexion</a>
+        </div>
+      </header>
+
+    <main class="planSalle-layout-container">
+        <h1 class="planSalle-layout-title">Plan de Salle</h1>
+        
+        <div class="planSalle-controls-container">
+            <div class="planSalle-layout-management">
+                <button id="planSalle-add-table-btn" class="planSalle-btn tt-btn-add">
+                    <i class="fas fa-plus tt-btn-icon"></i> Ajouter une Table
+                </button>
+                <button id="planSalle-save-layout" class="planSalle-btn tt-btn-save">
+                    <i class="fas fa-save"></i> Sauvegarder
+                </button>
+        
+                <button id="planSalle-reset-layout" class="planSalle-btn tt-btn-reset">
+                    <i class="fas fa-eraser"></i> Tout supprimer
+                </button>
+            </div>
+        </div>
+    
+        <div id="planSalle-restaurant-layout" class="planSalle-restaurant-floor"></div>
+
+        <!-- Modale de configuration de table -->
+        <div id="planSalle-table-config-modal" class="planSalle-modal" aria-hidden="true">
+            <div class="planSalle-modal-content">
+                <button class="planSalle-close-modal" aria-label="Fermer la fenêtre modale">&times;</button>
+                <h2>Configurer la Table</h2>
+                
+                <div class="planSalle-form-group">
+                    <label for="planSalle-table-number-input">Numéro :</label>
+                    <input type="text" id="planSalle-table-number-input" required>
+                </div>
+                
+                <div class="planSalle-form-group">
+                    <label for="planSalle-table-seats-input">Capacité :</label>
+                    <input type="number" id="planSalle-table-seats-input" min="1" max="20" value="4" required>
+                </div>
+                
+                <div class="planSalle-form-group">
+                    <label for="planSalle-table-shape-select">Forme :</label>
+                    <select id="planSalle-table-shape-select">
+                        <option value="round">Ronde</option>
+                        <option value="square">Carrée</option>
+                        <option value="rectangle">Rectangulaire</option>
+                        <option value="oval">Ovale</option>
+                    </select>
+                </div>
+                
+                <button id="planSalle-confirm-table-btn" class="tt-btn-add">Valider</button>
+            </div>
+        </div>
+
+        <!-- Modale de sauvegarde de layout -->
+        <div id="modal-save-layout" class="planSalle-modal" aria-hidden="true">
+            <div class="planSalle-modal-content">
+                <button class="close-save-layout-modal" aria-label="Fermer la fenêtre modale">&times;</button>
+                <h2>Sauvegarder le Layout</h2>
+                
+                <div class="planSalle-form-group">
+                    <label for="planSalle-layout-name-input">Nom du layout :</label>
+                    <input type="text" id="planSalle-layout-name-input" required>
+                    <div class="error-message" style="display: none;"></div>
+                </div>
+                
+                <button id="planSalle-confirm-save" class="tt-btn-save">Confirmer la sauvegarde</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>À propos</h4>
+                <p>TableTrove est une plateforme de réservation de tables en ligne.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liens utiles</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: contact@tabletrove.com</p>
+                <p>Téléphone: +1 514 - 123 - 4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TableTrove. Tous droits réservés.</p>
+        </div>
+    </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+    <script src="../JS/planSalle.js"></script>
+</body>
+</html>

@@ -1,0 +1,435 @@
+package com.ll.tabletrove_v3;
+
+import android.Manifest;
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.provider.MediaStore;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import android.widget.Toast;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
+
+
+public class ProfileActivity extends AppCompatActivity {
+
+    private static final int CODE_PERMISSION_CAMERA = 100;
+    private static final int CODE_PRISE_PHOTO = 101;
+    private static final String FICHIER_PHOTO_PROFIL = "photo_profil.png";
+
+    CircleImageView ivProfil, btnRetour;
+    Button btnChangerPhoto, btnSeDeconnecter, btnModifier, btnSupprimer;
+    TextView tvPrenom, tvNom, tvEmail, tvPhone, tvMdp, tvErreurMdp;
+    EditText etPrenom, etNom, etEmail, etPhone, etMdp;
+
+    String token;
+    List<View> autresBtn;
+    SessionManager sessionManager;
+    HttpJsonService apiHelper;
+
+    boolean isEditing = false;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_profile);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+        // Initialiser les vues
+        ivProfil = findViewById(R.id.photo_profil);
+        btnChangerPhoto = findViewById(R.id.btnChangerPhoto);
+        btnRetour = findViewById(R.id.btnRetourProfil);
+        btnSeDeconnecter = findViewById(R.id.btnSeDeconnecterProfil);
+        btnModifier = findViewById(R.id.btnModifierProfil);
+        btnSupprimer = findViewById(R.id.btnSupprimerProfil);
+        tvPrenom = findViewById(R.id.tvPrenomProfil);
+        tvNom = findViewById(R.id.tvNomProfil);
+        tvEmail = findViewById(R.id.tvEmailProfil);
+        tvPhone = findViewById(R.id.tvPhoneProfil);
+        tvMdp = findViewById(R.id.tvMdpProfil);
+        tvErreurMdp = findViewById(R.id.tvErreurMdpProfil);
+        etPrenom = findViewById(R.id.etPrenomProfil);
+        etNom = findViewById(R.id.etNomProfil);
+        etEmail = findViewById(R.id.etEmailProfil);
+        etPhone = findViewById(R.id.etPhoneProfil);
+        etMdp = findViewById(R.id.etMdpProfil);
+
+        tvMdp.setText("••••••••");
+
+        // Initialiser SessionManager et HttpJsonService
+        sessionManager = new SessionManager(this);
+        apiHelper = new HttpJsonService();
+
+        token = sessionManager.getUserToken();
+
+        btnRetour.setOnClickListener(v -> {
+            Intent iMain = new Intent(ProfileActivity.this, MainActivity.class);
+            startActivity(iMain);
+        });
+
+
+        // Bouton changer de photo de profil
+        btnChangerPhoto.setOnClickListener(v -> permissionCamera());
+
+        // Charger la photo actuelle si disponible
+        chargerPhotoProfil();
+
+        afficherProfil();
+
+        String prenom = tvPrenom.getText().toString();
+        String nom = tvNom.getText().toString();
+        String email = tvEmail.getText().toString();
+        String phone = tvPhone.getText().toString();
+
+        autresBtn = Arrays.asList(btnSeDeconnecter, btnRetour, btnChangerPhoto, btnSupprimer);
+
+        btnModifier.setOnClickListener(v -> {
+
+            isEditing = !isEditing;
+
+            if (isEditing) {
+                modeModifier();
+            } else {
+                String updatedNom = etNom.getText().toString();
+                String updatedPrenom = etPrenom.getText().toString();
+                String updatedEmail = etEmail.getText().toString();
+                String updatedPhone = etPhone.getText().toString();
+                String mdp = etMdp.getText().toString();
+
+                if (!mdp.isEmpty()) {
+                    apiHelper.updateUserProfile(
+                            this,
+                            token,
+                            updatedNom,
+                            updatedPrenom,
+                            updatedEmail,
+                            updatedPhone,
+                            mdp,
+                            new HttpJsonService.ApiCallback<>() {
+                                @Override
+                                public void onSuccess(String message) {
+                                    afficherMessage(message);
+
+                                    // Update TextView values with new data
+                                    tvPrenom.setText(updatedPrenom);
+                                    tvNom.setText(updatedNom);
+                                    tvEmail.setText(updatedEmail);
+                                    tvPhone.setText(updatedPhone);
+
+                                    modeLecture();
+                                }
+
+                                @Override
+                                public void onFailure(String eMessage) {
+                                    Toast.makeText(ProfileActivity.this,
+                                            "Erreur lors de la mise à jour: " + eMessage, Toast.LENGTH_LONG).show();
+
+                                    modeLecture();
+                                }
+                            }
+                    );
+                } else if (
+                        updatedPrenom.equals(prenom)
+                        && updatedNom.equals(nom)
+                        && updatedEmail.equals(email)
+                        && updatedPhone.equals(phone)) {
+                    modeLecture();
+                }
+                else {
+                    tvErreurMdp.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        btnSeDeconnecter.setOnClickListener(v -> {
+            sessionManager.seDeconnecter();
+            Intent iSeConnecter = new Intent(ProfileActivity.this, LoginActivity.class);
+            startActivity(iSeConnecter);
+            finish();
+        });
+
+        btnSupprimer.setOnClickListener(v -> {
+            afficherDialogueConfirmDelete();
+        });
+    }
+
+    private void permissionCamera() {
+        int result = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA);
+        if (result == PackageManager.PERMISSION_GRANTED) {
+            prendrePhoto();
+        } else {
+            requestPermissions(new String[] {Manifest.permission.CAMERA}, CODE_PERMISSION_CAMERA);
+        }
+    }
+
+    private ActivityResultLauncher<Intent> cameraLauncher = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            result -> {
+                if (result.getResultCode() == RESULT_OK && result.getData() != null) {
+                    Bundle extras = result.getData().getExtras();
+                    if (extras != null) {
+                        Bitmap imageBitmap = (Bitmap) extras.get("data");
+                        if (imageBitmap != null) {
+                            ivProfil.setImageBitmap(imageBitmap);
+
+                            sauvegarderPhoto(imageBitmap);
+                        }
+                    }
+                } else {
+                    afficherMessage("Prise de photo annulée");
+                }
+            }
+    );
+    private void prendrePhoto() {
+        Intent iPrendrePhoto = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (iPrendrePhoto.resolveActivity(getPackageManager()) != null) {
+            cameraLauncher.launch(iPrendrePhoto);
+        } else {
+            afficherMessage("Caméra non disponible");
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == CODE_PERMISSION_CAMERA) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                prendrePhoto();
+            } else {
+                afficherMessage("La prise de photo nécessite la permission de la caméra");
+            }
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        switch (requestCode) {
+            case CODE_PRISE_PHOTO:
+                if (resultCode == RESULT_OK) {
+                    afficherMessage("Photo prise");
+                    Bundle extras = data.getExtras();
+                    if (extras != null) {
+                        Bitmap imageBitmap = (Bitmap) extras.get("data");
+                        ivProfil.setImageBitmap(imageBitmap);
+                    }
+                } else
+                    afficherMessage("Photo annulée");
+                break;
+            default:
+                super.onActivityResult(requestCode, resultCode, data);
+        }
+    }
+
+    private void sauvegarderPhoto(Bitmap bitmap) {
+        File repertoire = getRepertoirePhoto();
+        if (!repertoire.exists()) {
+            repertoire.mkdirs();
+        }
+
+        File fichier = new File(repertoire, FICHIER_PHOTO_PROFIL);
+
+        try (FileOutputStream fos = new FileOutputStream(fichier)) {
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, fos);
+            fos.flush();
+
+            sauvegardeDansPreferences(FICHIER_PHOTO_PROFIL);
+
+            afficherMessage("Photo de profil mise à jour");
+        } catch (IOException e) {
+            afficherMessage("Erreur en sauvegardant la photo");
+            e.printStackTrace();
+        }
+    }
+
+    private File getRepertoirePhoto() {
+        File dossierPrive = getApplicationContext().getFilesDir();
+        return new File(dossierPrive, "images_profil");
+    }
+
+    private void sauvegardeDansPreferences(String fichier) {
+        SessionManager sessionManager = new SessionManager(this);
+        sessionManager.sauvegarderCheminPhoto(fichier);
+    }
+
+    private void chargerPhotoProfil() {
+        SessionManager sessionManager = new SessionManager(this);
+        String cheminImage = sessionManager.getCheminPhoto();
+
+        if (cheminImage != null) {
+            File repertoire = getRepertoirePhoto();
+            File fichier = new File(repertoire, cheminImage);
+
+            if (fichier.exists()) {
+                Bitmap imageProfil = BitmapFactory.decodeFile(fichier.getAbsolutePath());
+                if (imageProfil != null) {
+                    ivProfil.setImageBitmap(imageProfil);
+                }
+            }
+        }
+    }
+
+    private void afficherMessage(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    private void afficherProfil() {
+        apiHelper.getUserProfile(
+                ProfileActivity.this,
+                token,
+                new HttpJsonService.ApiCallback<>() {
+                    @Override
+                    public void onSuccess(JSONObject userProfile) {
+
+                        try {
+                            String prenom = userProfile.getString("prenom");
+                            String nom = userProfile.getString("nom");
+                            String email = userProfile.getString("email");
+                            String telephone = userProfile.getString("telephone");
+
+                            tvPrenom.setText(prenom);
+                            tvNom.setText(nom);
+                            tvEmail.setText(email);
+                            tvPhone.setText(telephone);
+
+                        } catch (JSONException e) {
+                            Toast.makeText(ProfileActivity.this,
+                                    "Erreur lors du traitement des données: " + e.getMessage(),
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(String errorMessage) {
+
+                        Toast.makeText(ProfileActivity.this,
+                                "Échec du chargement du profil: " + errorMessage,
+                                Toast.LENGTH_LONG).show();
+                    }
+                });
+    }
+    private void modeLecture() {
+        tvPrenom.setVisibility(View.VISIBLE);
+        tvNom.setVisibility(View.VISIBLE);
+        tvEmail.setVisibility(View.VISIBLE);
+        tvPhone.setVisibility(View.VISIBLE);
+        tvMdp.setVisibility(View.VISIBLE);
+
+        etPrenom.setVisibility(View.GONE);
+        etNom.setVisibility(View.GONE);
+        etEmail.setVisibility(View.GONE);
+        etPhone.setVisibility(View.GONE);
+        etMdp.setVisibility(View.GONE);
+        tvErreurMdp.setVisibility(View.GONE);
+
+        btnModifier.setText("Modifier");
+        btnModifier.setBackgroundColor(ContextCompat.getColor(ProfileActivity.this, R.color.bleu6));
+        Drawable modifyIcon = ContextCompat.getDrawable(ProfileActivity.this, R.drawable.ic_modifier_dark);
+        btnModifier.setCompoundDrawablesWithIntrinsicBounds(null, null, modifyIcon, null);
+        btnModifier.setCompoundDrawablePadding(8);
+
+        for (View vues : autresBtn) {
+            vues.setEnabled(true);
+            vues.setAlpha(1.0f);
+        }
+    }
+
+    private void modeModifier() {
+        etPrenom.setText(tvPrenom.getText().toString());
+        etNom.setText(tvNom.getText().toString());
+        etEmail.setText(tvEmail.getText().toString());
+        etPhone.setText(tvPhone.getText().toString());
+
+        tvPrenom.setVisibility(View.GONE);
+        tvNom.setVisibility(View.GONE);
+        tvEmail.setVisibility(View.GONE);
+        tvPhone.setVisibility(View.GONE);
+        tvMdp.setVisibility(View.GONE);
+
+        etPrenom.setVisibility(View.VISIBLE);
+        etNom.setVisibility(View.VISIBLE);
+        etEmail.setVisibility(View.VISIBLE);
+        etPhone.setVisibility(View.VISIBLE);
+        etMdp.setVisibility(View.VISIBLE);
+
+        btnModifier.setText("Sauvegarder");
+        btnModifier.setBackgroundColor(ContextCompat.getColor(this, R.color.sauvegarder_profil));
+        Drawable saveIcon = ContextCompat.getDrawable(this, R.drawable.ic_sauvegarder_dark);
+        btnModifier.setCompoundDrawablesWithIntrinsicBounds(null, null, saveIcon, null);
+        btnModifier.setCompoundDrawablePadding(8);
+
+        for (View vues : autresBtn) {
+            vues.setEnabled(false);
+            vues.setAlpha(0.6f);
+        }
+    }
+    private void afficherDialogueConfirmDelete() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Supprimer le compte");
+        builder.setMessage("Êtes-vous sûr de vouloir supprimer le compte ?");
+
+        builder.setPositiveButton("Oui", (dialog, id) -> {
+            apiHelper.deleteUserProfile(
+                    this,
+                    token,
+                    new HttpJsonService.ApiCallback<>() {
+                        @Override
+                        public void onSuccess(String message) {
+                            afficherMessage(message);
+
+                            sessionManager.seDeconnecter();
+
+                            Intent iRegister = new Intent(ProfileActivity.this, RegisterActivity.class);
+                            startActivity(iRegister);
+                            finish();
+                        }
+
+                        @Override
+                        public void onFailure(String errorMessage) {
+                            afficherMessage("Erreur : " + errorMessage);
+                        }
+                    }
+            );
+        });
+
+        builder.setNegativeButton("Non", (dialog, id) -> {
+            dialog.dismiss();
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+}
+

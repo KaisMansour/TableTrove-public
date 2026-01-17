@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Page de contact du site Table Trove" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Table Trove</title>
+
+    <!-- Lien vers le fichier CSS -->
+    <link rel="stylesheet" href="../../CSS/Styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  </head>
+  <body>
+
+      <!-- Header -->
+      <header>
+        <div class="logo">
+            <h1>TableTrove</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="restaurants.html">Restaurants</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <span id="messageBienvenue"></span>
+            <a href="connexion.html" id="loginBtn" class="btn-login">Connexion</a>
+            <a href="inscription.html" id="signupBtn" class="btn-signup">Inscription</a>
+            <a href="menuClient.html" id="menuClientBtn" class="btn-menu-client">Moi</a>
+            <a href="deconnexion.html" id="logoutBtn" class="btn-logout" style="display: none;">Déconnexion</a>
+        </div>    
+      </header>  
+      
+
+      <!-- Formulaire de Contact -->
+      <section id="contact-form-section" class="contact-section"> 
+        <div class="contact-container">
+            <h2 id="contact-form-title">Envoyez-nous un Message</h2>
+            <p id="contact-form-intro">Nous aimons entendre vos retours ! Complétez ce formulaire et nous reviendrons vers vous dès que possible.</p>
+
+            <form id="contact-form" class="form-contact">
+                <!-- Prénom -->
+                <div class="form-group">
+                    <label for="prenom-contact" class="form-label">Prénom</label>
+                    <input type="text" id="prenom-contact" class="form-input" name="prenom" placeholder="Entrez votre prénom" required>
+                </div>
+
+                <!-- Nom -->
+                <div class="form-group">
+                    <label for="nom-contact" class="form-label">Nom</label>
+                    <input type="text" id="nom-contact" class="form-input" name="nom" placeholder="Entrez votre nom" required>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email-contact" class="form-label">Email</label>
+                    <input type="email" id="email-contact" class="form-input" name="email" placeholder="Entrez votre email" required>
+                </div>
+
+                <!-- Numéro de téléphone -->
+                <div class="form-group">
+                    <label for="telephone-contact" class="form-label">Numéro de téléphone</label>
+                    <input type="tel" id="telephone-contact" class="form-input" name="telephone" placeholder="Entrez votre numéro de téléphone" required>
+                </div>
+
+                <!-- Message -->
+                <div class="form-group">
+                    <label for="message-contact" class="form-label">Votre Message</label>
+                    <textarea id="message-contact" class="form-input" name="message" placeholder="Entrez votre message" rows="5" required></textarea>
+                </div>
+
+                <!-- Bouton d'envoi -->
+                <button type="submit" id="submit-contact" class="submit-button">Envoyer</button>
+            </form>
+        </div>
+      </section>
+
+      <!-- Coordonnées -->
+      <section id="contact-info-section" class="contact-section">
+        <div class="contact-container">
+            <h2 id="contact-info-title">Nos Coordonnées</h2>
+            <p id="contact-info-description">Nous sommes là pour vous ! N'hésitez pas à nous contacter via les informations ci-dessous.</p>
+            <p id="contact-info-phone"><strong>Téléphone :</strong> +1 514 - 123 - 4567</p>
+            <p id="contact-info-email"><strong>Email :</strong> contact@tabletrove.com</p>
+        </div>
+      </section>
+
+    
+      <!-- Footer Table Trove-->  
+      <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>À propos</h4>
+                <p>TableTrove est une plateforme de réservation de tables en ligne qui vous permet de découvrir et de découvrir les meilleurs restaurants près de chez vous.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liens utiles</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: contact@tabletrove.com</p>
+                <p>Téléphone: +1 514 - 123 - 4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TableTrove. Tous droits réservés.</p>
+        </div>
+      </footer>
+
+      <!-- JS -->
+      <script src="../../JS/sessionUtilisateur.js"></script>
+  </body>
+</html>

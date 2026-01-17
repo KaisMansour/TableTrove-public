@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Page d'information pour les restaurants du site Table Trove" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Page - TableTrove</title>
+    <link rel="stylesheet" href="../../CSS/Styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+     <!-- Header Restaurant -->
+     <header>
+        <div class="logo">
+            <h1>TableTrove</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="gestionReservations.html">Réservations</a></li>
+                <li><a href="statistiquesResto.html">Statistiques</a></li>
+                <li><a href="modifierPageResto.html">Page</a></li>
+                <li><a href="contactRestaurant.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <span id="restaurantName"></span>
+            <a href="menuRestaurateur.html" id="menuRestaurateurBtn" class="btn-menu-restaurateur">Gestion</a>
+            <a href="deconnexionRestaurant.html" id="logoutBtn" class="btn-logout" style="display: none;">Déconnexion</a>
+        </div>
+      </header>
+
+      <main class="restaurant-page">
+        <h2> Mettez à jour vos informations</h2>
+        <!-- Hero Section -->
+        <section class="restaurant-hero">
+            <input type="file" id="restaurantHeroImageInput" accept="image/*" />
+            <img id="restaurantHeroImage" 
+                 src="../../Images/Restaurants/BistroVieuxMontreal.jpg" 
+                 alt="Photo du restaurant Le Gourmet" 
+                 class="hero-image">
+            <button id="saveHeroImageButton" class="btn btn-save">Sauvegarder l'image</button>
+        </section>
+    
+        <!-- Restaurant Info Editable -->
+        <section class="restaurant-info-container">
+            <form id="updateRestaurantForm" class="restaurant-edit-form">
+                <h3 class="modifierInfos">Modifiez les informations du restaurant</h3>
+                <div class="restaurantNom">
+                    <input type="text" id="restaurantNameInput" name="nom_restaurant" class="editable-title" placeholder="Nom du restaurant" required>
+                </div>
+    
+                <div class="restaurant-meta">
+                    <input type="text" id="restaurantLocationInput" name="adresse" placeholder="Adresse" required>
+                    <input type="text" id="restaurantPhoneInput" name="telephone" placeholder="Téléphone" required>
+                    <input type="email" id="restaurantEmailInput" name="email" placeholder="Email" required>
+                </div>
+    
+                <label for="restaurantDescriptionInput"></label>
+                <textarea id="restaurantDescriptionInput" name="description" placeholder="Petite description de votre restaurant..."required></textarea>
+    
+                <button type="submit" class="btn btn-save">Enregistrer les modifications</button>
+            </form>
+        </section>
+    
+        <!-- Navigation Tabs -->
+        <div class="tabs-container">
+            <div class="tabs">
+                <div class="tab active" data-tab="overview">Aperçu</div>
+                <div class="tab" data-tab="menu">Menu</div>
+                <div class="tab" data-tab="photos">Photos</div>
+            </div>
+        </div>
+    
+        <!-- Tab Content -->
+        <div class="tab-content">
+            <!-- Overview Section -->
+            <section class="section overview-section active" id="overview">
+                <div class="section-content">
+                    <h3>Modifiez les heures d'ouverture et les caractéristiques du restaurant</h3>
+                    <h2 class="section-title">À propos</h2>
+                    <div class="about-grid">
+                        <!-- Heures d'ouverture -->
+                        <div class="about-card horaires-card">
+                            <h3><i class="fas fa-clock"></i> Heures d'ouverture</h3>
+                            <form id="hoursForm" class="hours-form">
+                                <div class="day-group">
+                                    <label>Lundi:</label>
+                                    <input type="time" name="open_Lundi">
+                                    <span>à</span>
+                                    <input type="time" name="close_Lundi" >
+                                    <button type="button" class="btn-null" data-day="Lundi">Fermé</button>
+                                </div>
+                                <div class="day-group">
+                                    <label>Mardi:</label>
+                                    <input type="time" name="open_Mardi">
+                                    <span>à</span>
+                                    <input type="time" name="close_Mardi">
+                                    <button type="button" class="btn-null" data-day="Mardi">Fermé</button>
+                                </div>
+                                <div class="day-group">
+                                    <label>Mercredi:</label>
+                                    <input type="time" name="open_Mercredi">
+                                    <span>à</span>
+                                    <input type="time" name="close_Mercredi">
+                                    <button type="button" class="btn-null" data-day="Mercredi">Fermé</button>
+                                </div>
+                                <div class="day-group">
+                                    <label>Jeudi:</label>
+                                    <input type="time" name="open_Jeudi">
+                                    <span>à</span>
+                                    <input type="time" name="close_Jeudi">
+                                    <button type="button" class="btn-null" data-day="Jeudi">Fermé</button>
+                                </div>
+                                <div class="day-group">
+                                    <label>Vendredi:</label>
+                                    <input type="time" name="open_Vendredi">
+                                    <span>à</span>
+                                    <input type="time" name="close_Vendredi">
+                                    <button type="button" class="btn-null" data-day="Vendredi">Fermé</button>
+                                </div>
+                                <div class="day-group">
+                                    <label>Samedi:</label>
+                                    <input type="time" name="open_Samedi">
+                                    <span>à</span>
+                                    <input type="time" name="close_Samedi">
+                                    <button type="button" class="btn-null" data-day="Samedi">Fermé</button>
+                                </div>
+                                <div class="day-group">
+                                    <label>Dimanche:</label>
+                                    <input type="time" name="open_Dimanche">
+                                    <span>à</span>
+                                    <input type="time" name="close_Dimanche">
+                                    <button type="button" class="btn-null" data-day="Dimanche">Fermé</button>
+                                </div>
+                                <button type="submit" class="btn btn-save">Enregistrer les horaires</button>
+                            </form>
+                        </div>
+
+                        <!-- Informations -->
+                        <div class="about-card informations-card">
+                            <h3><i class="fas fa-info-circle"></i> Informations</h3>
+                            <ul id="restaurantInfoList" class="info-list">
+                                <li><strong>Cuisine :</strong>
+                                    <select id="cuisineSelector" name="cuisine_type">
+                                        <option value="française">Française</option>
+                                        <option value="italienne">Italienne</option>
+                                        <option value="japonaise">Japonaise</option>
+                                        <option value="indienne">Indienne</option>
+                                        <option value="mexicaine">Mexicaine</option>
+                                        <option value="chinoise">Chinoise</option>
+                                        <option value="grecque">Grecque</option>
+                                        <option value="espagnole">Espagnole</option>
+                                        <option value="orientale">Orientale</option>
+                                        <option value="africaine">Africaine</option>
+                                        <option value="diverse">Diverses (Internationale)</option>
+                                        <option value="autres">Autres</option>
+                                    </select>
+                                </li>
+                                <li><strong>Prix moyen :</strong>
+                                    <select id="priceSelector" name="prix_moyen">
+                                        <option value="$">$</option>
+                                        <option value="$$">$$</option>
+                                        <option value="$$$">$$$</option>
+                                        <option value="$$$$">$$$$</option>
+                                    </select>
+                                </li>
+                                <li><strong>Tenue vestimentaire :</strong>
+                                    <select id="attireSelector" name="tenu_vestimentaire">
+                                        <option value="casual">Casual</option>
+                                        <option value="smart casual">Smart Casual</option>
+                                        <option value="chic">Chic</option>
+                                        <option value="business casual">Business Casual</option>
+                                        <option value="formel">Formel</option>
+                                    </select>
+                                </li>
+                            </ul>
+                            <button id="saveButton" class="btn btn-save">Enregistrer les modifications</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+<!-- Menu Section -->
+<section class="section menu-section" id="menu">
+    <h3>Ajoutez le menu de votre restaurant</h3>
+    <div class="section-content">
+        <h2 class="section-title">Menu</h2>
+
+        <img
+        >
+
+        <!-- Formulaire pour uploader un fichier PDF du menu -->
+        <form id="menuFileForm" class="menu-form">
+            <label for="menuFile">Importer un fichier PDF du menu :</label>
+            <input type="file" name="menuFile" id="menuFile" accept="application/pdf" required>
+            <button type="submit" class="btn btn-save">Téléverser</button>
+        </form>
+
+        <!-- Affichage du fichier PDF -->
+        <div class="menu-file-preview">
+            <iframe id="menuFilePreview" src="" style="width: 100%; height: 500px; display: none;" frameborder="0"></iframe>
+        </div>
+    </div>
+</section>
+
+    
+       <!-- Photos Section -->
+<section class="section photos-section" id="photos">
+    <div class="section-content">
+        <h3>Entrez les photos du restaurant</h3>
+        <h2 class="section-title">Photos</h2>
+
+        
+
+        <form id="photoForm" class="photo-form">
+            <input type="file" name="photo" accept="image/*" multiple required>
+            <button type="submit" class="btn btn-save">Ajouter une photo</button>
+        </form>
+        
+
+        <div class="carousel-container">
+            <button class="carousel-btn prev-btn" aria-label="Previous photo">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+
+            <div class="carousel">
+                <img id="restaurantHeroImage" 
+                src="../../Images/Restaurants/Vin.jpg" 
+                alt="Photo du restaurant Le Gourmet" 
+                class="hero-image">
+                <img id="restaurantHeroImage" 
+                src="../../Images/Restaurants/TartareBoeuf.jpg" 
+                alt="Photo du restaurant Le Gourmet" 
+                class="hero-image">
+                <img id="restaurantHeroImage" 
+                src="../../Images/Restaurants/ClientRepas.jpg" 
+                alt="Photo du restaurant Le Gourmet" 
+                class="hero-image">
+                <div class="carousel-track"></div>
+                
+            </div>
+
+            <button class="carousel-btn next-btn" aria-label="Next photo">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <div class="carousel-dots"></div> <!-- Assurez-vous que cet élément existe -->
+        </div>
+
+        <div id="restaurantPhotos" class="photo-gallery"></div>
+    </div>
+</section>
+
+        </div>
+      </main>
+    
+   <!-- Footer Table Trove-->  
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>À propos</h4>
+            <p>TableTrove est une plateforme de réservation de tables en ligne qui vous permet de découvrir les meilleurs restaurants près de chez vous.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Liens utiles</h4>
+            <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Politique de confidentialité</a></li>
+                <li><a href="#">Conditions d'utilisation</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>Email: contact@tabletrove.com</p>
+            <p>Téléphone: +1 514 - 123 - 4567</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 TableTrove. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+    <!-- JS -->
+    <script src="../../JS/sessionUtilisateur.js"></script> 
+    <script src="../../JS/modifierPageResto.js"></script>
+   <!-- T <script src="../../JS/pageRestaurant.js"></script> oggle-->
+
+   <script>
+
+
+    
+   </script>
+   
+</body>
+</html>

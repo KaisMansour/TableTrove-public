@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Page de confirmation de reservation du site Table Trove" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation de Réservation | TableTrove</title>
+    <link rel="stylesheet" href="../../CSS/Styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="logo">
+        <h1>TableTrove</h1>
+    </div>
+    <nav>
+        <div class="user-actions">
+            <span id="messageBienvenue"></span>
+            <a href="connexion.html" id="loginBtn" class="btn-login">Connexion</a>
+            <a href="inscription.html" id="signupBtn" class="btn-signup">Inscription</a>
+             <a href="menuClient.html" id="menuClientBtn" class="btn-menu-client">Moi</a>
+             <a href="deconnexion.html" id="logoutBtn" class="btn-logout" style="display: none;">Déconnexion</a>
+        </div> 
+    </nav>
+    <div class="user-actions">
+        <a href="connexion.html" class="btn-login">Connexion</a>
+        <a href="inscription.html" class="btn-signup">Inscription</a>
+    </div>
+</header>
+
+<div id="confirmationPage">
+
+<section class="confirmation-hero">
+    <div class="container">
+        <h1><i class="fas fa-check-circle"></i> Réservation confirmée</h1>
+        <p>Votre table a été réservée avec succès</p>
+    </div>
+</section>
+
+<main class="confirmation-container">
+    <div class="confirmation-card">
+        <h2>Merci pour votre réservation !</h2>
+        <p>Un email de confirmation a été envoyé à <strong id="client-email">client@example.com</strong></p>
+        
+        <div class="confirmation-details">
+            <div class="detail-item">
+                <div class="detail-icon"><i class="fas fa-utensils"></i></div>
+                <div>
+                    <h3 id="restaurant-name">NOM RESTAURANT</h3>
+                    <p id="restaurant-address">ADRESSE RESTAURANT</p>
+                </div>
+            </div>
+            
+            <div class="detail-item">
+                <div class="detail-icon"><i class="far fa-calendar-alt"></i></div>
+                <div>
+                    <h3>Date et Heure</h3>
+                    <p id="booking-date">JOUR/MOIS/ANNÉE à HEURE</p>
+                </div>
+            </div>
+            
+            <div class="detail-item">
+                <div class="detail-icon"><i class="fas fa-users"></i></div>
+                <div>
+                    <h3>Nombre de personnes</h3>
+                    <p id="party-size"> NOMBRE DE PERSONNE</p>
+                </div>
+            </div>
+            
+            <div class="detail-item">
+                <div class="detail-icon"><i class="fas fa-sticky-note"></i></div>
+                <div>
+                    <h3>Demandes spéciales</h3>
+                    <p id="special-requests">DESCRIPTION</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="confirmation-actions">
+            <a href="#" class="btn btn-primary" id="add-to-calendar">
+                <i class="far fa-calendar-plus"></i> Ajouter à mon calendrier
+            </a>
+            <a href="restaurants.html" class="btn btn-secondary">
+                <i class="fas fa-search"></i> Explorer d'autres restaurants
+            </a>
+            <a href="index.html" class="btn btn-light">
+                <i class="fas fa-home"></i> Retour à l'accueil
+            </a>
+        </div>
+    </div>
+    
+    <div class="confirmation-card">
+        <h2>Informations importantes</h2>
+        <ul class="important-notes">
+            <li>Veuillez arriver 10 minutes avant l'heure de réservation</li>
+            <li>Annulation possible jusqu'à 2 heures avant</li>
+            <li>Contactez le restaurant pour toute modification</li>
+        </ul>
+    </div>
+</div>
+</main>
+
+<!-- Footer Table Trove-->  
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>À propos</h4>
+            <p>TableTrove est une plateforme de réservation de tables en ligne qui vous permet de découvrir et de découvrir les meilleurs restaurants près de chez vous.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Liens utiles</h4>
+            <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Politique de confidentialité</a></li>
+                <li><a href="#">Conditions d'utilisation</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>Email: contact@tabletrove.com</p>
+            <p>Téléphone: +1 514 - 123 - 4567</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 TableTrove. Tous droits réservés.</p>
+    </div>
+  </footer>
+  
+  <!-- JS -->
+<script src="../../JS/confirmation.js"></script>
+<script src="../../JS/sessionUtilisateur.js"></script>
+</body>
+</html>

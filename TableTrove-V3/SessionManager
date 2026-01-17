@@ -1,0 +1,61 @@
+package com.ll.tabletrove_v3;
+
+import android.content.Context;
+import android.content.SharedPreferences;
+
+public class SessionManager {
+    private static final String NOM_PREF = "TableTrovePrefs";
+    private static final String CLE_TOKEN = "jwt_token";
+    private static final String CLE_USER_ID = "user_id";
+    private static final String CLE_EMAIL = "email";
+    private static final String CLE_EST_CONNECTE = "is_logged_in";
+
+    private SharedPreferences sharedPreferences;
+    private SharedPreferences.Editor editeur;
+    private Context contexte;
+
+    public SessionManager(Context context) {
+        this.contexte = context;
+        sharedPreferences = this.contexte.getSharedPreferences(NOM_PREF, Context.MODE_PRIVATE);
+        editeur = sharedPreferences.edit();
+    }
+
+    public void creerSessionUser(String token, String userId, String email) {
+        editeur.putString(CLE_TOKEN, token);
+        editeur.putString(CLE_USER_ID, userId);
+        editeur.putString(CLE_EMAIL, email);
+        editeur.putBoolean(CLE_EST_CONNECTE, true);
+
+        editeur.commit();
+    }
+
+    public String getUserToken() {
+        return sharedPreferences.getString(CLE_TOKEN, null);
+    }
+
+    public String getUserId() {
+        return sharedPreferences.getString(CLE_USER_ID, null);
+    }
+
+    public String getUserEmail() {
+        return sharedPreferences.getString(CLE_EMAIL, null);
+    }
+
+    public boolean estConnecte() {
+        return sharedPreferences.getBoolean(CLE_EST_CONNECTE, false);
+    }
+
+    public void seDeconnecter() {
+        editeur.clear();
+        editeur.commit();
+    }
+
+    public void sauvegarderCheminPhoto(String fichier) {
+        editeur.putString("PROFILE_PICTURE", fichier);
+        editeur.commit();
+    }
+
+    public String getCheminPhoto() {
+        return sharedPreferences.getString("PROFILE_PICTURE", null);
+    }
+}

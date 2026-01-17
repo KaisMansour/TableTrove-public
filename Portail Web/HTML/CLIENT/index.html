@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Page d'accueil du site Table Trove" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Accueil - Table Trove</title>
+
+    <link rel="stylesheet" href="../../CSS/Styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>TableTrove</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="restaurants.html">Restaurants</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="user-actions">
+            <span id="messageBienvenue"></span>
+            <a href="connexion.html" id="loginBtn" class="btn-login">Connexion</a>
+            <a href="inscription.html" id="signupBtn" class="btn-signup">Inscription</a>
+            <a href="menuClient.html" id="menuClientBtn" class="btn-menu-client">Moi</a>
+            <a href="deconnexion.html" id="logoutBtn" class="btn-logout" style="display: none;">Déconnexion</a>
+        </div>     
+    </header>
+
+    <!-- Image d'Accueil -->
+    <div id="ImageAccueil">
+      <img src="../../Images/TableTrove/AccueilTableTrove.png" alt="Image d'Accueil" class="img-accueil">
+    </div>
+
+    <!-- Section Recherche de Restaurants Rapide -->
+    <section class="hero">
+      <div class="hero-content">
+          <h2>Réservez votre table en quelques clics</h2>
+          <p>Trouvez les meilleurs restaurants près de chez vous et réservez en ligne.</p>
+          <form class="search-form">
+              <input type="text" placeholder="Rechercher un restaurant, localisation, cuisine ..." required>
+              <input type="date" placeholder="Date" required>
+              <input type="time" placeholder="Heure" required>
+              <div class="input-group">
+                  <input type="number" placeholder="Nombre de personnes" min="1" required>
+              </div>
+
+              <a href="restaurants.html"><button type="button" class="btn-search">Explorer</button></a>
+
+          </form>
+      </div>
+  </section>
+<!-- Section Tendances -->
+<section class="trending-restaurants">
+    <video autoplay muted loop id="VagueVideo">
+        <source src="../Images/TableTrove/VaguesPlage.mp4" type="video/mp4">
+    </video>
+    <h2>Restaurants Tendances</h2>
+    <div class="scroll-container">
+        <button class="scroll-btn left">&#10094;</button>
+        <div class="restaurant-grid" id="trendingGrid"></div>
+        <button class="scroll-btn right">&#10095;</button>
+    </div>
+  </section>
+  
+  <!-- Section Lunch -->
+  <section class="restaurants_lunch">
+    <img src="../Images/TableTrove/MapPirate02.jpg" alt="Image Map de Pirate" class="img-MapPirate"> 
+    <h2>Parfait pour le Lunch</h2>
+    <div class="restaurant-grid" id="lunchGrid"></div>
+  </section>
+
+
+    <!-- Section Commentaires des Utilisateurs -->
+    <section class="user-avis">
+        <h2>Commentaires des Utilisateurs</h2>
+        <div class="avis-grid">
+            <div class="review-card">
+                <div class="user-info">
+                    <img src="https://via.placeholder.com/50" alt="User 1">
+                    <h4>Jean Dupont</h4>
+                </div>
+                <p>"Le Jardin Secret est un endroit magnifique pour dîner en terrasse. La nourriture est excellente !"</p>
+                <div class="rating">4.8 ★</div>
+            </div>
+            <div class="review-card">
+                <div class="user-info">
+                    <img src="https://via.placeholder.com/50" alt="User 2">
+                    <h4>Marie Curie</h4>
+                </div>
+                <p>"Pasta Amore propose les meilleures pâtes que j'ai jamais goûtées. Je recommande vivement !"</p>
+                <div class="rating">4.9 ★</div>
+            </div>
+            <div class="review-card">
+                <div class="user-info">
+                    <img src="https://via.placeholder.com/50" alt="User 3">
+                    <h4>Pierre Durand</h4>
+                </div>
+                <p>"Sushi Zen est un must pour les amateurs de sushi. Frais et délicieux !"</p>
+                <div class="rating">4.7 ★</div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Section Publicité pour la Version Mobile -->
+    <section class="mobile-ad">
+        <div class="ad-content">
+            <h2>Téléchargez l'App TableTrove</h2>
+            <p>Réservez vos tables en quelques clics, où que vous soyez.</p>
+            <div class="app-buttons">
+                <button class="btn-app-store">Disponible sur l'App Store</button>
+                <button class="btn-google-play">Disponible sur Google Play</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>À propos</h4>
+                <p>TableTrove est une plateforme de réservation de tables en ligne qui vous permet de découvrir et de Découvrir les meilleurs restaurants près de chez vous.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liens utiles</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: contact@TableTrove.com</p>
+                <p>Téléphone: +1 514 - 123 - 4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TableTrove. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- JS -->
+  <script src="../../JS/index.js"></script>
+  <script src="../../JS/sessionUtilisateur.js"></script>
+
+</body>
+</html>

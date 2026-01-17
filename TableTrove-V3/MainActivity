@@ -1,0 +1,141 @@
+package com.ll.tabletrove_v3;
+
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
+import org.json.JSONObject;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button btnSeConnecter, btnSettings, btnNotifs, btnRechercher;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_main);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
+
+
+        // Debugging
+        TextView tvDebugToken, tvDebugUserId;
+        tvDebugToken = findViewById(R.id.tvDebugToken);
+        tvDebugUserId = findViewById(R.id.tvDebugUserId);
+        // Get token from SessionManager
+        SessionManager sessionManager = new SessionManager(this);
+        String token = sessionManager.getToken();
+        // Get current user
+        String currentUser = sessionManager.getUserId();
+
+        TextView tvBienvenu = findViewById(R.id.tvBienvenu);
+
+
+// Call the API method with the token
+        HttpJsonService jsonService = new HttpJsonService();
+        jsonService.getUserProfile(this, token, new HttpJsonService.ApiCallback<JSONObject>() {
+            @Override
+            public void onSuccess(JSONObject userProfile) {
+                // Handle profile data
+                try {
+                    String msgBienvenu = "Bienvenue, " + userProfile.getString("prenom") + userProfile.getString("nom");
+
+                    tvBienvenu.setText(msgBienvenu);
+                } catch (Exception e) {
+                    // Handle JSON error
+                }
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
+                // Handle error
+            }
+        });
+
+
+        // Display token if available
+        if (token != null && !token.isEmpty()) {
+            tvDebugUserId.setText("UserID : " + currentUser);
+            tvDebugToken.setText("Token :\n" + token);
+        } else {
+            tvDebugToken.setText("Token va s'afficher ici.");
+        }
+        // Debugging
+
+        try {
+            // Initialiser les vues
+            btnNotifs = findViewById(R.id.btnNotifs);
+            btnSeConnecter = findViewById(R.id.btnSeConnecter);
+            btnSettings = findViewById(R.id.btnSettings);
+            btnRechercher = findViewById(R.id.btnRechercher);
+
+            // Verifier si les vues sont disponibles
+            if (btnSeConnecter == null || btnSettings == null || btnNotifs == null || btnRechercher == null) {
+                Log.e("MainActivity", "Un ou plus de boutons ne sont pas disponibles");
+                return;
+            }
+
+            btnSeConnecter.setOnClickListener(v -> {
+                try {
+                    Intent iSeConnecter = new Intent(v.getContext(), LoginActivity.class);
+                    startActivity(iSeConnecter);
+                } catch (Exception e) {
+                    Log.e("MainActivity", "Erreur en commencant MainActivity : " + e.getMessage());
+                }
+            });
+
+            btnSettings.setOnClickListener(v -> {
+                try {
+                    Intent iProfile = new Intent(v.getContext(), ProfileActivity.class);
+                    startActivity(iProfile);
+                } catch (Exception e) {
+                    Log.e("MainActivity", "Erreur en commencant ProfileActivity: " + e.getMessage());
+                }
+            });
+
+            btnNotifs.setOnClickListener(v -> {
+                try {
+                    // Ajouter fonction. ex.: dropdown list des notifications des reservations
+                    //                   ou : ouvrir activite ReservationActivity
+                    // Pour le moment, verifier qu'il peut etre clique
+                    Log.d("MainActivity", "Bouton Notifs clique");
+                } catch (Exception e) {
+                    Log.e("MainActivity", "Erreur Notifs: " + e.getMessage());
+                }
+            });
+            btnRechercher.setOnClickListener(v -> {
+                try {
+                    // Verifier si le user est connecte
+                    if (sessionManager.estConnecte()) {
+                        Intent iRechercheResto = new Intent(v.getContext(), RechercheRestoActivity.class);
+                        startActivity(iRechercheResto);
+                        // S'il ne l'est pas, on l'envoie vers l'activite Login
+                    } else {
+                        Intent iSeConnecter = new Intent(v.getContext(), LoginActivity.class);
+                        startActivity(iSeConnecter);
+                    }
+                } catch (Exception e) {
+                    Log.e("MainActivity", "Erreur du handler btnRecherche: " + e.getMessage());
+                }
+            });
+        } catch (Exception e) {
+            Log.e("MainActivity", "Erreur d'initialisation de MainActivity: " + e.getMessage());
+        }
+    }
+}

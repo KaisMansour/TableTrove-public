@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Statistiques clients pour les restaurateurs sur Table Trove" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistiques Clients - Table Trove</title>
+    
+    <link rel="stylesheet" href="../../CSS/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+      <!-- Header Restaurant -->
+      <header>
+        <div class="logo">
+            <h1>TableTrove</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="gestionReservations.html">Réservations</a></li>
+                <li><a href="statistiquesResto.html">Statistiques</a></li> 
+                <li><a href="modifierPageResto.html">Page</a></li>
+                <li><a href="contactRestaurant.html">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="user-actions">
+            <span id="restaurantName"></span>
+            <a href="menuRestaurateur.html" id="menuRestaurateurBtn" class="btn-menu-restaurateur">Gestion</a>
+            <a href="deconnexionRestaurant.html" id="logoutBtn" class="btn-logout" style="display: none;">Déconnexion</a>
+        </div>
+      </header>
+  
+      <main class="container mx-auto p-6">
+        <h1 class="text-2xl font-bold mb-4">Statistiques des Réservations</h1>
+      
+        <!-- Statistiques générales -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+          <div class="bg-white shadow-md rounded-2xl p-4">
+            <h2 class="text-lg font-semibold">Total Réservations</h2>
+            <p id="stat-total" class="text-2xl font-bold text-blue-600">...</p>
+          </div>
+          <div class="bg-white shadow-md rounded-2xl p-4">
+            <h2 class="text-lg font-semibold">Clients Réguliers</h2>
+            <p id="stat-clients-reguliers" class="text-2xl font-bold text-green-600">...</p>
+          </div>
+          <div class="bg-white shadow-md rounded-2xl p-4">
+            <h2 class="text-lg font-semibold">Moyenne de Personnes</h2>
+            <p id="stat-moyenne-personnes" class="text-2xl font-bold text-purple-600">...</p>
+          </div>
+          <div class="bg-white shadow-md rounded-2xl p-4">
+            <h2 class="text-lg font-semibold">Durée Moyenne</h2>
+            <p id="stat-duree-moyenne" class="text-2xl font-bold text-orange-500">...</p>
+          </div>
+        </section>
+      
+        <!-- Répartition par statut -->
+        <section class="mb-6">
+          <h2 class="text-xl font-semibold mb-2">Réservations par Statut</h2>
+          <ul id="stat-par-statut" class="list-disc list-inside text-gray-800 space-y-1">
+            <!-- Dynamique -->
+          </ul>
+        </section>
+      
+        <!-- Réservations par jour -->
+        <section class="mb-6">
+          <h2 class="text-xl font-semibold mb-2">Réservations par Jour</h2>
+          <ul id="stat-par-jour" class="list-disc list-inside text-gray-800 space-y-1">
+            <!-- Dynamique -->
+          </ul>
+        </section>
+    
+      </main>
+      
+
+<footer class="main-footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>À propos</h4>
+            <p>TableTrove est une plateforme de réservation de tables en ligne qui vous permet de découvrir et gérer les meilleurs restaurants.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Liens utiles</h4>
+            <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Politique de confidentialité</a></li>
+                <li><a href="#">Conditions d'utilisation</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>Email: contact@tabletrove.com</p>
+            <p>Téléphone: +1 514 - 123 - 4567</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 TableTrove. Tous droits réservés.</p>
+    </div>
+</footer>
+
+<!-- JS -->
+<script src="../../JS/sessionUtilisateur.js"></script>
+<script src="../../JS/statistiquesResto.js"></script>
+</body>
+</html>

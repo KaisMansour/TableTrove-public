@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Page d'histoire de Table Trove" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À propos de nous - Table Trove</title>
+
+    <!-- Lien vers le fichier CSS -->
+    <link rel="stylesheet" href="../../CSS/Styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  </head>
+
+  <body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>TableTrove</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="restaurants.html">Restaurants</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="user-actions">
+            <span id="messageBienvenue"></span>
+            <a href="connexion.html" id="loginBtn" class="btn-login">Connexion</a>
+            <a href="inscription.html" id="signupBtn" class="btn-signup">Inscription</a>
+            <a href="menuClient.html" id="menuClientBtn" class="btn-menu-client">Moi</a>
+            <a href="deconnexion.html" id="logoutBtn" class="btn-logout" style="display: none;">Déconnexion</a>
+        </div>       
+    </header>
+
+      <!-- Section À propos -->
+      <section id="about-section">
+        <video autoplay muted loop id="VagueVideo">
+            <source src="../../Images/TableTrove/VaguesPlage.mp4" type="video/mp4">
+        </video>
+        <div class="about-container">
+            <h2>Notre Histoire</h2>
+            <p>TableTrove n'est pas seulement une plateforme de réservation de restaurants, c'est le fruit d'une collaboration innovante entre cinq étudiantes de l'École de Technologie Supérieure (ETS) de Montréal. Voici leur histoire :</p>
+
+            <h3>Les Fondateurs</h3>
+            <p>Il y de cela quelques semaines, cinq étudiantes passionnées par la technologie et l'innovation se sont rencontrées lors de leur parcours académique à l'ETS. Ils étaient tous issues de disciplines différentes, mais partageaient une même vision : utiliser la technologie pour améliorer l'expérience de la restauration.</p>
+
+            <h3>Le Début de l'Aventure</h3>
+            <p>L'idée de TableTrove est née lors d'une discussion informelle après un projet de groupe. Chaque membre avait vécu des difficultés pour trouver et réserver des restaurants en ligne. De là est née l'idée d'une plateforme intuitive et rapide permettant aux utilisateurs de découvrir les meilleurs restaurants près de chez eux et de réserver une table en quelques clics.</p>
+
+            <h3>Un Projet Collaboratif</h3>
+            <p>Le groupe s'est réuni pour réfléchir aux besoins des utilisateurs et développer une solution qui serait à la fois facile à utiliser et fiable. Après des semaines de développement, de tests et de révisions, TableTrove a vu le jour, combinant la simplicité d'interface avec la puissance d'une base de données robuste sur les restaurants.</p>
+
+            <h3>Notre Mission</h3>
+            <p>Chez TableTrove, notre mission est de rendre chaque expérience de réservation de restaurant aussi simple et agréable que possible. Nous voulons que chaque utilisateur, que ce soit un passionné de gastronomie ou une personne cherchant un dîner rapide, puisse trouver l'endroit parfait en un clin d'œil.</p>
+
+            
+            <h3>Les Fondateurs de TableTrove :</h3>
+            <div class="fondateurs">
+                <strong>Moihié Dora Yao</strong>
+                <strong>Salim Belkacemi</strong>
+                <strong>Kais Mansour</strong>
+                <strong>Malik Djellouli.</strong>
+                <strong>Laurier Lessard</strong>
+            </div>
+          
+
+            <h3>Nous Avons Hâte de Vous Servir</h3>
+            <p>Que vous soyez un client à la recherche d'une expérience gastronomique exceptionnelle ou un restaurateur désireux de rejoindre notre plateforme, nous sommes là pour vous. Ensemble, nous réinventons la réservation de restaurants, une table à la fois.</p>
+        </div>
+      </section>
+
+      <!-- Footer Table Trove-->  
+      <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>À propos</h4>
+                <p>TableTrove est une plateforme de réservation de tables en ligne qui vous permet de découvrir et de découvrir les meilleurs restaurants près de chez vous.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liens utiles</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: contact@tabletrove.com</p>
+                <p>Téléphone: +1 514 - 123 - 4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TableTrove. Tous droits réservés.</p>
+        </div>
+      </footer>
+      
+      <!-- JS -->
+      <script src="../../JS/index.js"></script>
+      <script src="../../JS/sessionUtilisateur.js"></script>
+  </body>
+</html>

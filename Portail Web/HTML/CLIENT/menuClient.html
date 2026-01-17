@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Compte - Client</title>
+    <link rel="stylesheet" href="../../CSS/Styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>TableTrove</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="restaurants.html">Restaurants</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="user-actions">
+            <span id="messageBienvenue"></span>
+            <a href="connexion.html" id="loginBtn" class="btn-login">Connexion</a>
+            <a href="inscription.html" id="signupBtn" class="btn-signup">Inscription</a>
+            <a href="menuClient.html" id="menuClientBtn" class="btn-menu-client">Moi</a>
+            <a href="deconnexion.html" id="logoutBtn" class="btn-logout" style="display: none;">Déconnexion</a>
+        </div>     
+    </header>
+
+<div id="imageMenuClient">
+    <div id="client-nav-wrapper">
+        <nav id="client-dashboard-nav">
+            <ul>
+                <li><button class="nav-btn" id="nav-reservations-btn">Mes Réservations</button></li>
+                <li><button class="nav-btn" id="nav-restaurants-btn">Restaurants Sauvegardés</button></li>
+                <li><button class="nav-btn" id="nav-profile-btn">Modifier mon Profil</button></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Wrapper principal -->
+    <div id="client-dashboard-wrapper">
+        <!-- Section des Réservations -->
+        <section id="client-reservations-section" class="client-dashboard-section active">
+            <h2 id="reservations-section-title">Mes Prochaines Réservations</h2>
+            <div id="client-reservations-list" class="dashboard-list">
+                <!-- Les réservations seront générées dynamiquement ici -->
+            </div>
+        </section>
+
+        <!-- Section Restaurants Sauvegardés -->
+        <section id="client-restaurants-saves-section" class="client-dashboard-section">
+            <h2 id="restaurants-section-title">Restaurants Sauvegardés</h2>
+            <div id="client-restaurants-list" class="dashboard-list">
+                <!-- Les restaurants sauvegardés seront générés dynamiquement ici -->
+            </div>
+        </section>
+
+        <!-- Section Modifier le Profil -->
+        <section id="client-profile-settings-section" class="client-dashboard-section">
+            <h2 id="profile-section-title">Modifier Mon Profil</h2>
+            <form id="profile-update-form">
+                <!-- Prénom -->
+                <label for="profile-first-name" id="profile-first-name-label">Prénom</label>
+                <input type="text" id="profile-first-name" name="profile-first-name" class="profile-input" value="">
+
+                <!-- Nom -->
+                <label for="profile-last-name" id="profile-last-name-label">Nom</label>
+                <input type="text" id="profile-last-name" name="profile-last-name" class="profile-input" value="">
+
+                <!-- Email -->
+                <label for="profile-email" id="profile-email-label">Email</label>
+                <input type="email" id="profile-email" name="profile-email" class="profile-input" value="">
+
+                <!-- Numéro de Téléphone -->
+                <label for="profile-phone" id="profile-phone-label">Numéro de Téléphone</label>
+                <input type="tel" id="profile-phone" name="profile-phone" class="profile-input" value="">
+
+                <!-- Nouveau Mot de Passe -->
+                <label for="profile-new-password" id="profile-new-password-label">Nouveau Mot de Passe</label>
+                <input type="password" id="profile-new-password" name="profile-new-password" class="profile-input" placeholder="Entrez un nouveau mot de passe">
+
+                <!-- Confirmation du Mot de Passe -->
+                <label for="profile-confirm-password" id="profile-confirm-password-label">Confirmer le Mot de Passe</label>
+                <input type="password" id="profile-confirm-password" name="profile-confirm-password" class="profile-input" placeholder="Confirmez votre mot de passe">
+
+                <!-- Bouton pour enregistrer les modifications -->
+                <button type="submit" id="save-profile-btn" class="profile-save-btn">Enregistrer les Modifications</button>
+            </form>
+        </section>
+    </div>
+</div>
+
+<!-- Footer Table Trove-->  
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>À propos</h4>
+            <p>TableTrove est une plateforme de réservation de tables en ligne qui vous permet de découvrir et de découvrir les meilleurs restaurants près de chez vous.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Liens utiles</h4>
+            <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Politique de confidentialité</a></li>
+                <li><a href="#">Conditions d'utilisation</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>Email: contact@tabletrove.com</p>
+            <p>Téléphone: +1 514 - 123 - 4567</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 TableTrove. Tous droits réservés.</p>
+    </div>
+</footer>
+
+<!-- JS -->
+<script src="../../JS/sessionUtilisateur.js"></script>
+<script src="../../JS/menuClient.js"></script>
+</body>
+</html>

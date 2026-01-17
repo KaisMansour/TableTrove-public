@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Découvrez les meilleurs restaurants avec TableTrove">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Découverte des Restaurants - TableTrove</title>
+
+    <!-- Lien vers le fichier CSS -->
+    <link rel="stylesheet" href="../../CSS/Styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+      <!-- Header -->
+  <header>
+    <div class="logo">
+        <h1>TableTrove</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="restaurants.html">Restaurants</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+        <div class="user-actions">
+            <span id="messageBienvenue"></span>
+            <a href="connexion.html" id="loginBtn" class="btn-login">Connexion</a>
+            <a href="inscription.html" id="signupBtn" class="btn-signup">Inscription</a>
+             <a href="menuClient.html" id="menuClientBtn" class="btn-menu-client">Moi</a>
+             <a href="deconnexion.html" id="logoutBtn" class="btn-logout" style="display: none;">Déconnexion</a>
+        </div>  
+</header>
+
+    <!-- Section Découverte -->
+    <section id="discover-section">
+        <video autoplay muted loop>
+            <source src="../../Images/TableTrove/Bubble.mp4" type="video/mp4">
+        </video>
+        <div class="discover-container">
+            <h2>Découvrez des Restaurants d'Exception</h2>
+            <p>Explorez une sélection de restaurants exceptionnels selon vos envies culinaires.</p>
+
+            <!-- Catégorie : Gastronomie Française -->
+            <div class="category">
+                <h3>🧀 Gastronomie Française</h3>
+                <div class="restaurant-list">
+                    <div class="restaurant">
+                        <img src="../../images/le-petit-chef.jpg" alt="Le Petit Chef">
+                        <h4>Le Petit Chef</h4>
+                        <p>Un bistrot parisien authentique offrant une cuisine française raffinée.</p>
+                        <div class="rating">4.8 ★</div>
+                    </div>
+                    <div class="restaurant">
+                        <img src="../../images/la-belle-vie.jpg" alt="La Belle Vie">
+                        <h4>La Belle Vie</h4>
+                        <p>Spécialités françaises et cave à vin exceptionnelle.</p>
+                        <div class="rating">4.3 ★</div>
+                    </div>
+                    <div class="restaurant">
+                        <img src="../../images/La Lumière.jpg" alt="La Lumière">
+                        <h4>La Lumière</h4>
+                        <p>Restaurant proposant de la gastronomie typiquement de la region de marseille.</p>
+                        <div class="rating">4.1 ★</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Catégorie : Cuisine Asiatique -->
+            <div class="category">
+                <h3>🍜 Cuisine Asiatique</h3>
+                <div class="restaurant-list">
+                    <div class="restaurant">
+                        <img src="../../images/tokyo-bites.jpg" alt="Tokyo Bites">
+                        <h4>Tokyo Bites</h4>
+                        <p>Sushis frais et ramen traditionnels dans une ambiance zen.</p>
+                        <div class="rating">4.1 ★</div>
+                    </div>
+                    <div class="restaurant">
+                        <img src="../../images/thai-delight.jpg" alt="Thaï Delight">
+                        <h4>Thaï Delight</h4>
+                        <p>Les meilleures saveurs de la Thaïlande à votre table.</p>
+                        <div class="rating">4.8 ★</div>
+                    </div>
+                    <div class="restaurant">
+                        <img src="../../images/Murhie.jpg" alt="Murhie">
+                        <h4>Murhie</h4>
+                        <p>Sentez-vous transporté en Chine avec leurs spécialités.</p>
+                        <div class="rating">3.9 ★</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Catégorie : Street Food & Fast Casual -->
+            <div class="category">
+                <h3>🍔 Street Food & Fast Casual</h3>
+                <div class="restaurant-list">
+                    <div class="restaurant">
+                        <img src="../../images/burger-heaven.jpg" alt="Burger Heaven">
+                        <h4>Burger Heaven</h4>
+                        <p>Burgers gourmets avec des ingrédients de qualité.</p>
+                        <div class="rating">3.4 ★</div>
+                    </div>
+                    <div class="restaurant">
+                        <img src="../../images/taco-express.jpg" alt="Taco Express">
+                        <h4>Taco Express</h4>
+                        <p>Les meilleurs tacos de la ville avec des recettes authentiques.</p>
+                        <div class="rating">4.1 ★</div>
+                    </div>
+                    <div class="restaurant">
+                        <img src="../../images/LeGrandQuebec.jpg" alt="Le Grand Quebec">
+                        <h4>Le Grand Quebec</h4>
+                        <p>Les saveurs de chez nous.</p>
+                        <div class="rating">4.1 ★</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Catégorie : Végétariens & Bio -->
+            <div class="category">
+                <h3>🥗 Restaurants Végétariens & Bio</h3>
+                <div class="restaurant-list">
+                    <div class="restaurant">
+                        <img src="../../images/green-bowl.jpg" alt="Green Bowl">
+                        <h4>Green Bowl</h4>
+                        <p>Des plats sains, bio et savoureux pour tous les gourmets.</p>
+                        <div class="rating">4.1 ★</div>
+                    </div>
+                    <div class="restaurant">
+                        <img src="../../images/nature-bites.jpg" alt="Nature Bites">
+                        <h4>Nature Bites</h4>
+                        <p>Une cuisine 100% végétale avec des produits frais et locaux.</p>
+                        <div class="rating">4.3 ★</div>
+                    </div>
+                    <div class="restaurant">
+                        <img src="../../images/bioGreen.jpg" alt="Bio Green">
+                        <h4>Bio Green</h4>
+                        <p>Des salades aux saveurs inspirés par toutes les saveurs du monde.</p>
+                        <div class="rating">4.6 ★</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- Footer Table Trove-->  
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>À propos</h4>
+            <p>TableTrove est une plateforme de réservation de tables en ligne qui vous permet de découvrir et de découvrir les meilleurs restaurants près de chez vous.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Liens utiles</h4>
+            <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Politique de confidentialité</a></li>
+                <li><a href="#">Conditions d'utilisation</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>Email: contact@tabletrove.com</p>
+            <p>Téléphone: +1 514 - 123 - 4567</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 TableTrove. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+    <!-- JS -->
+    <script src="../../JS/sessionUtilisateur.js"></script>
+
+</body>
+</html>

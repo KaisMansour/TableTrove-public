@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".ProfileActivity">
+
+    <TextView
+        android:id="@+id/tvErreurMdpProfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/erreur_mdp_profil"
+        android:textColor="@color/message_erreur"
+        android:textStyle="italic"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/LayoutMdpProfil"
+        app:layout_constraintTop_toBottomOf="@+id/LayoutMdpProfil" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/btnRetourProfil"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/background_ic_fleche_retour"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_profile_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/profil_info"
+        android:textColor="@color/bleu_fonce1"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/photo_profil"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/background_ic_menu_camera"
+        app:civ_border_color="@color/bleu_fonce2"
+        app:civ_border_width="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_profile_title" />
+
+
+    <Button
+        android:id="@+id/btnChangerPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="@color/bleu6"
+        android:text="@string/changer_photo_profil"
+        android:textColor="@color/gold1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/photo_profil" />
+
+    <Button
+        android:id="@+id/btnSeDeconnecterProfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/bleu6"
+        android:text="@string/se_deconnecter"
+        android:textColor="@color/gold1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvMdpProfilTitre" />
+
+    <Button
+        android:id="@+id/btnSupprimerProfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/supprimer_profil"
+        android:drawableEnd="@drawable/ic_supprimer_dark"
+        android:drawablePadding="8dp"
+        android:text="@string/supprimer_profil"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSeDeconnecterProfil" />
+
+    <TextView
+        android:id="@+id/tvInfosUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/infos_profil"
+        android:textColor="@color/bleu_fonce1"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnChangerPhoto" />
+
+    <Button
+        android:id="@+id/btnModifierProfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:backgroundTint="@color/bleu6"
+        android:drawableEnd="@drawable/ic_modifier_dark"
+        android:drawablePadding="8dp"
+        android:drawableTint="@color/gold1"
+        android:text="@string/modifier_profil"
+        android:textColor="@color/gold1"
+        app:layout_constraintBottom_toBottomOf="@+id/tvInfosUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvInfosUser" />
+
+    <TextView
+        android:id="@+id/tvPrenomProfilTitre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/prenom"
+        android:textColor="@color/bleu_fonce1"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnModifierProfil" />
+
+    <TextView
+        android:id="@+id/tvNomProfilTitre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/nom"
+        android:textColor="@color/bleu_fonce1"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tvPrenomProfilTitre"
+        app:layout_constraintTop_toBottomOf="@+id/tvPrenomProfilTitre" />
+
+    <TextView
+        android:id="@+id/tvEmailProfilTitre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/email"
+        android:textColor="@color/bleu_fonce1"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tvNomProfilTitre"
+        app:layout_constraintTop_toBottomOf="@+id/tvNomProfilTitre" />
+
+
+    <TextView
+        android:id="@+id/tvPhoneProfilTitre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/telephone"
+        android:textColor="@color/bleu_fonce1"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tvEmailProfilTitre"
+        app:layout_constraintTop_toBottomOf="@+id/tvEmailProfilTitre" />
+
+    <TextView
+        android:id="@+id/tvMdpProfilTitre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/mdp"
+        android:textColor="@color/bleu_fonce1"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/tvPhoneProfilTitre"
+        app:layout_constraintTop_toBottomOf="@+id/tvPhoneProfilTitre" />
+
+    <LinearLayout
+        android:id="@+id/LayoutPrenomProfil"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPrenomProfilTitre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvPrenomProfilTitre"
+        app:layout_constraintVertical_bias="0.476">
+
+    <TextView
+        android:id="@+id/tvPrenomProfil"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/etPrenomProfil"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:ems="10"
+        android:hint="@string/prenom"
+        android:inputType="text"
+        android:textSize="16sp"
+        android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LayoutNomProfil"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/tvNomProfilTitre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvNomProfilTitre"
+        app:layout_constraintVertical_bias="0.476">
+    <TextView
+        android:id="@+id/tvNomProfil"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/etNomProfil"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:ems="10"
+        android:hint="@string/nom"
+        android:inputType="text"
+        android:textSize="16sp"
+        android:visibility="gone"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LayoutEmailProfil"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/tvEmailProfilTitre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvEmailProfilTitre"
+        app:layout_constraintVertical_bias="0.476">
+    <TextView
+        android:id="@+id/tvEmailProfil"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/etEmailProfil"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textEmailAddress"
+        android:textSize="16sp"
+        android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LayoutPhoneProfil"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPhoneProfilTitre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvPhoneProfilTitre"
+        app:layout_constraintVertical_bias="0.476">
+
+    <TextView
+        android:id="@+id/tvPhoneProfil"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/etPhoneProfil"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:ems="10"
+        android:hint="@string/telephone"
+        android:inputType="phone"
+        android:textSize="16sp"
+        android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LayoutMdpProfil"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_marginEnd="20dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/tvMdpProfilTitre"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tvMdpProfilTitre"
+        app:layout_constraintVertical_bias="0.476">
+
+        <TextView
+            android:id="@+id/tvMdpProfil"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+
+        <EditText
+            android:id="@+id/etMdpProfil"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:hint="@string/mdp"
+            android:inputType="textPassword"
+            android:textSize="16sp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

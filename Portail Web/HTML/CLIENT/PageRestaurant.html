@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sakura Sushi - Montréal | TableTrove</title>
+    <link rel="stylesheet" href="../../CSS/Styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>TableTrove</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="restaurants.html">Restaurants</a></li>
+                <li><a href="about.html">À propos</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="user-actions">
+            <span id="messageBienvenue">Bienvenue, Invité</span>
+            <a href="connexion.html" id="loginBtn" class="btn-login">Connexion</a>
+            <a href="inscription.html" id="signupBtn" class="btn-signup">Inscription</a>
+        </div>     
+    </header>
+
+    <main class="restaurant-page">
+        <!-- Hero Section -->
+        <section class="restaurant-hero">
+                    </section>
+
+        <!-- Restaurant Info -->
+        <section class="restaurant-info-container">
+            <div class="restaurant-title">
+                <h1 id="restaurant-name">Sakura Sushi</h1>
+                <div class="restaurant-actions">
+                    <button class="btn btn-save"><i class="far fa-heart"></i></button>
+                    <a id="restaurant-link" href="PageRestaurant.html?id=2" class="btn btn-reserve">Réserver</a>
+                </div>
+            </div>
+
+            <div class="restaurant-meta">
+                <span id="restaurant-location"><i class="fas fa-map-marker-alt"></i> 123 Rue du Sakura, Montréal, QC</span>
+                <span id="restaurant-cuisine"><i class="fas fa-utensils"></i> Japonais, Sushi</span>
+                <span id="restaurant-price"><i class="fas fa-dollar-sign"></i> $$$ (Haut de gamme)</span>
+                <span id="restaurant-rating"><i class="fas fa-star"></i> 4.7 (248 avis)</span>
+            </div>
+
+            <p class="restaurant-description" id="restaurant-description">
+                Sakura Sushi vous offre une expérience culinaire japonaise authentique avec des ingrédients frais importés directement du Japon. 
+                Notre chef étoilé Yoshimura crée des plats traditionnels avec une touche moderne.
+            </p>
+        </section>
+
+        <!-- Navigation Tabs -->
+        <div class="tabs-container">
+            <div class="tabs">
+                <div class="tab active" data-tab="overview">Aperçu</div>
+                <div class="tab" data-tab="menu">Menu</div>
+                <div class="tab" data-tab="photos">Photos</div>
+                <div class="tab" data-tab="avis">Avis</div>
+                <div class="tab" data-tab="location">Localisation</div>
+            </div>
+        </div>
+
+        <!-- Tab Content -->
+        <div class="tab-content">
+            <!-- Overview Section -->
+            <section class="section overview-section active" id="overview">
+                <div class="section-content">
+                    <h2 class="section-title">À propos</h2>
+                    <div class="about-grid">
+                        <div class="about-card">
+                            <h3><i class="fas fa-clock"></i> Heures d'ouverture</h3>
+                            <ul class="hours-list" id="restaurant-hours">
+                                <li><span>Lundi - Jeudi:</span> <span id="hours-weekdays">11h30 - 22h00</span></li>
+                                <li><span>Vendredi - Samedi:</span> <span id="hours-weekend">11h30 - 23h00</span></li>
+                                <li><span>Dimanche:</span> <span id="hours-sunday">12h00 - 21h00</span></li>
+                            </ul>
+                        </div>
+                        <div class="about-card">
+                            <h3><i class="fas fa-info-circle"></i> Informations</h3>
+                            <ul class="info-list" id="restaurant-details">
+                                <li><span>Cuisine:</span> <span id="detail-cuisine">Japonaise, Sushi</span></li>
+                                <li><span>Prix moyen:</span> <span id="detail-price">45$ par personne</span></li>
+                                <li><span>Tenue vestimentaire:</span> <span id="detail-dresscode">Chic décontracté</span></li>
+                                <li><span>Options:</span> Terrasse, Sushi bar, Réservations</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Menu Section -->
+            <section class="section menu-section" id="menu">
+                <div class="section-content">
+                    <h2 class="section-title">Menu</h2>
+                    <div class="menu-grid" id="menu-container">
+                        <!-- Rempli dynamiquement par JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Photos Section -->
+            <section class="section photos-section" id="photos">
+                <div class="section-content">
+                    <h2 class="section-title">Photos</h2>
+                    <div class="carousel-container">
+                        <button class="carousel-btn prev-btn" aria-label="Previous photo">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        
+                        <div class="carousel">
+                            <div class="carousel-track" id="carousel-track">
+                                <!-- Rempli dynamiquement par JavaScript -->
+                            </div>
+                        </div>
+                        
+                        <button class="carousel-btn next-btn" aria-label="Next photo">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    
+                    <div class="carousel-dots" id="carousel-dots">
+                        <!-- Rempli dynamiquement par JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- avis Section -->
+            <section class="section avis-section" id="avis">
+                <div class="section-content">
+                    <h2 class="section-title">Avis des clients</h2>
+                    <div class="avis-container" id="avis-container">
+                        <!-- Rempli dynamiquement par JavaScript -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Location Section -->
+            <section class="section location-section" id="location">
+                <div class="section-content">
+                    <h2 class="section-title">Localisation</h2>
+                    <div class="location-info">
+                        <p id="restaurant-address"><i class="fas fa-map-marker-alt"></i> 123 Rue du Sakura, Montréal, QC H3A 1B2</p>
+                        <p id="restaurant-phone"><i class="fas fa-phone"></i> (514) 555-1234</p>
+                        <p id="restaurant-website"><i class="fas fa-globe"></i> <a href="https://sakurasushi-mtl.com">www.sakurasushi-mtl.com</a></p>
+                    </div>
+                    <div class="map-container">
+                        <iframe id="restaurant-map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2796.0480623825336!2d-73.57082368444082!3d45.50373497910136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4cc91a541c64b70d%3A0x654e3138211fefef!2sMontreal%2C%20QC!5e0!3m2!1sen!2sca!4v1620000000000!5m2!1sen!2sca" 
+                                width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>À propos</h4>
+                <p>TableTrove est une plateforme de réservation de tables en ligne qui vous permet de découvrir et de découvrir les meilleurs restaurants près de chez vous.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liens utiles</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: contact@tabletrove.com</p>
+                <p>Téléphone: +1 514 - 123 - 4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TableTrove. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+     <script src="../../JS/pageRestaurant.js"></script>
+    <script src="../../JS/sessionUtilisateur.js"></script>
+</body>
+</html>

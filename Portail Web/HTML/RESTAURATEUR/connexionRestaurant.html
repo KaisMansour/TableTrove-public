@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Page de connexion pour restaurateur du site Table Trove" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>  Connexion - Table Trove </title>
+
+    <link rel="stylesheet" href="../../CSS/Styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+        <h1>TableTrove</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="restaurants.html">Restaurants</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+        <div class="user-actions">
+            <a href="connexion.html" id="loginBtn" class="btn-login">Connexion</a>
+            <a href="menuRestaurateur.html" 
+            id="menuRestaurateurBtn" 
+            class="btn-menu-restaurateur" 
+            style="display: none">
+            Menu Restaurateur
+         </a>
+             <a href="deconnexionRestaurant.html" id="logoutBtn" class="btn-logout" style="display: none;">Déconnexion</a>
+        </div>  
+</header>
+
+<!-- Contenue Principal-->
+<main>
+    <img src="../../Images/TableTrove/IlePirateTresor.jpg" alt="Accueil Table Trove" class="connexion-image">
+    
+    <div class="connexion">
+    <div class="login-container">
+        <h2>Connexion</h2>
+
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="email">Adresse e-mail</label>
+                <input type="email" id="email" name="email" required placeholder="Entrez votre e-mail">
+            </div>
+            <div class="input-group">
+                <label for="mot_de_passe">Mot de passe</label>
+                <input type="password" id="mot_de_passe" name="mot_de_passe" required placeholder="Entrez votre mot de passe">
+            </div>
+            <button id="btnConnexion" type="submit">Se connecter</button>
+        </form>
+
+        <div class="links">
+            <a href="../CLIENT/connexion.html">Êtes-vous un client ?</a>
+            <a href="inscription.html">Créer un compte Restaurant</a>
+        </div>
+    </div>
+</div>
+  </main>
+
+  <!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h4>À propos</h4>
+            <p>TableTrove est une plateforme de réservation de tables en ligne qui vous permet de découvrir et de Découvrir les meilleurs restaurants près de chez vous.</p>
+        </div>
+        <div class="footer-section">
+            <h4>Liens utiles</h4>
+            <ul>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Politique de confidentialité</a></li>
+                <li><a href="#">Conditions d'utilisation</a></li>
+            </ul>
+        </div>
+        <div class="footer-section">
+            <h4>Contact</h4>
+            <p>Email: contact@TableTrove.com</p>
+            <p>Téléphone: +1 514 - 123 - 4567</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2025 TableTrove. Tous droits réservés.</p>
+    </div>
+</footer>
+
+<!-- Script -->
+<script src="../../JS/connexionRestaurant.js"></script>
+<script src="../../JS/sessionUtilisateur.js"></script>
+
+</body>
+</html>

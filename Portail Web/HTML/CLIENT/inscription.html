@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Page d'inscription du site Table Trove" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>  Inscription - Table Trove </title>
+
+    <link rel="stylesheet" href="../../CSS/Styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="logo">
+        <h1>TableTrove</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="restaurants.html">Restaurants</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+        <div class="user-actions">
+            <span id="messageBienvenue"></span>
+            <a href="connexion.html" id="loginBtn" class="btn-login">Connexion</a>
+            <a href="inscription.html" id="signupBtn" class="btn-signup">Inscription</a>
+             <a href="menuClient.html" id="menuClientBtn" class="btn-menu-client">Moi</a>
+             <a href="deconnexion.html" id="logoutBtn" class="btn-logout" style="display: none;">Déconnexion</a>
+        </div>  
+</header>
+<!-- Image -->
+
+
+<div class="inscription">
+    <img src="../../Images/TableTrove/AccueilTableTrove.png" alt="Accueil Table Trove" class="connexion-image">
+    <div class="login-container">
+        <h2>Inscription</h2>
+        <form>
+            <div class="form-container">
+                <!-- Première colonne : Prénom, Nom, Email -->
+                <div class="column">
+                    <!-- Prénom -->
+                    <div class="input-group">
+                        <label for="prenom">Prénom</label>
+                        <input type="text" id="prenom" name="prenom" placeholder="Entrez votre prénom" required>
+                    </div>
+
+                    <!-- Nom -->
+                    <div class="input-group">
+                        <label for="nom">Nom</label>
+                        <input type="text" id="nom" name="nom" placeholder="Entrez votre nom" required>
+                    </div>
+
+                    <!-- Date de naissance -->
+                    <div class="input-group">
+                        <label for="date_naissance">Date de naissance</label>
+                        <input type="date" id="date_naissance" name="date_naissance" required max="2009-12-31">
+                    </div>
+
+                    <!-- Email -->
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
+                    </div>
+                </div>
+
+                <!-- Deuxième colonne : Numéro de téléphone, Mot de passe, Confirmer le mot de passe -->
+                <div class="column">
+                    <!-- Numéro de téléphone -->
+                    <div class="input-group">
+                        <label for="numero">Numéro de téléphone</label>
+                        <input type="tel" id="numero" name="numero" placeholder="Entrez votre numéro de téléphone" required>
+                    </div>
+
+                    <!-- Mot de passe -->
+                    <div class="input-group">
+                        <label for="mot_de_passe">Mot de passe</label>
+                        <input type="password" id="mot_de_passe" name="mot_de_passe" placeholder="Entrez votre mot de passe" required>
+                    </div>
+
+                    <!-- Confirmer le mot de passe -->
+                    <div class="input-group">
+                        <label for="confirmer_mot_de_passe">Confirmer le mot de passe</label>
+                        <input type="password" id="confirmer_mot_de_passe" name="confirmer_mot_de_passe" placeholder="Confirmez votre mot de passe" required>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bouton d'inscription -->
+            <button type="button" class="btn" id="SInscrire">S'inscrire</button>
+
+        </form>
+    </div>
+</div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>À propos</h4>
+                <p>TableTrove est une plateforme de réservation de tables en ligne qui vous permet de découvrir et de Découvrir les meilleurs restaurants près de chez vous.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Liens utiles</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Politique de confidentialité</a></li>
+                    <li><a href="#">Conditions d'utilisation</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contact</h4>
+                <p>Email: contact@TableTrove.com</p>
+                <p>Téléphone: +1 514 - 123 - 4567</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 TableTrove. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <!-- JS -->
+     <script src="../../JS/inscription.js"></script>
+    <script src="../../JS/sessionUtilisateur.js"></script>
+
+</body>
+</html>

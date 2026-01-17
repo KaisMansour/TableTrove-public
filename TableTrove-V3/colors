@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="message_erreur">#B71C1C</color>
+    <color name="bleu1">#1264BA</color>
+    <color name="bleu2">#4B6FA4</color>
+    <color name="bleu3">#2881BA</color>
+    <color name="bleu4">#4AF2FF</color>
+    <color name="bleu5">#5398CE</color>
+    <color name="bleu6">#02276E</color>
+    <color name="bleu_fonce1">#071A38</color>
+    <color name="bleu_fonce2">#022646</color>
+    <color name="gold1">#D4C482</color>
+    <color name="gold2">#af914b</color>
+    <color name="gold3">#a47c47</color>
+    <color name="gold4">#b28548</color>
+</resources>
